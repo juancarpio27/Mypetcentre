@@ -1,0 +1,108 @@
+<div class="main-body">
+    <% if @reservation.reserved? %>
+        <h1>Thank you for using Mypetcentre.com!</h1>
+      <div class="bg-success payment-success">
+        <p>Your payment has been aproveed using card: </p>
+        <p>****************<%= @reservation.card_number[-4..-1] %></p>
+      </div>
+        <h2>Reservation ID: <%= @reservation.id %></h2>
+        <h5>Your confirmation details: </h5>
+        <table class="table table-striped">
+          <tr>
+            <td>Provider: </td>
+            <td><%= @reservation.service.provider.name %> <%= @reservation.service.provider.last_name %></td>
+          </tr>
+          <tr>
+            <td>Contact phone: </td>
+            <td><%= @reservation.service.provider.phone %></td>
+          </tr>
+          <tr>
+            <td>Contact emailr: </td>
+            <td><%= @reservation.service.provider.email %></td>
+          </tr>
+          <tr>
+            <td>Service type: </td>
+            <td><%= @reservation.service.service_type %></td>
+          </tr>
+          <tr>
+            <td>Start date: </td>
+            <td><%= @reservation.start %></td>
+          </tr>
+          <tr>
+            <td>End date: </td>
+            <td><%= @reservation.end %></td>
+          </tr>
+          <tr>
+            <td>Price: </td>
+            <td><%= @reservation.price %></td>
+          </tr>
+        </table>
+        <p>A confirmation email has been sent to: <h5><%= @reservation.user.email %></h5></p>
+    <% end %>
+    <% if @reservation.completed? %>
+        <h1>Thank you for using our services!</h1>
+        <h2>We hope you have enjoyed our service and received your pet back safely</h2>
+        <p>In our compromise to mantain high quality standards, we would like to ask you some questions about or service</p>
+        <h3>Your service sumary</h3>
+        <div class="row">
+          <div class="col-md-8">
+            <table class="table table-striped">
+              <tr>
+                <td>Provider: </td>
+                <td><%= @reservation.service.provider.name %> <%= @reservation.service.provider.last_name %></td>
+              </tr>
+              <tr>
+                <td>Service type: </td>
+                <td><%= @reservation.service.service_type %></td>
+              </tr>
+              <tr>
+                <td>Start date: </td>
+                <td><%= @reservation.start %></td>
+              </tr>
+              <tr>
+                <td>End date: </td>
+                <td><%= @reservation.end %></td>
+              </tr>
+              <tr>
+                <td>Price: </td>
+                <td><%= @reservation.price %></td>
+              </tr>
+            </table>
+          </div>
+          <div class="col-md-4">
+            <%= image_tag(@reservation.service.photo, alt: "default", class: "review-image") %><br><br>
+          </div>
+        </div>
+
+        <h3>We would like to ask you to classify certain aspects of your service, where 1 is the lowest grade and 5 is the highest one:</h3>
+        <div class="questions">
+            <div class="question">
+              <h4>Punctuality</h4>
+              <div class="rating">
+                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+              </div>
+            </div>
+          <div class="question">
+            <h4>Responsability</h4>
+            <div class="rating">
+              <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+            </div>
+          </div>
+          <div class="question">
+            <h4>Communication</h4>
+            <div class="rating">
+              <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+            </div>
+          </div>
+          <div class="question">
+            <h4>Overall rating:</h4>
+            <div class="rating">
+              <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+            </div>
+          </div>
+          <%= link_to "Submit", confirmation_path, class: 'btn btn-primary' %>
+        </div>
+
+
+    <% end %>
+</div>

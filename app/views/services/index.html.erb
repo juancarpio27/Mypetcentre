@@ -1,0 +1,146 @@
+<div class="main-body">
+    <div class="row">
+
+      <div class="col-md-3">
+        <h6>Your search: </h6>
+        <p><%= params[:search] %></p>
+        <div class="form-group">
+          <input type="email" class="form-control" placeholder="Location">
+        </div>
+        <h6>People rating:</h6>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="">
+            5 stars
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="">
+            4 stars
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="">
+            3 stars
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="">
+            2 stars
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="">
+            1 star
+          </label>
+        </div>
+        <h6>Price:</h6>
+        <div class="input-group">
+          <div class="input-group-addon">$</div>
+          <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+        </div>
+        <h6>Pet:</h6>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="">
+            Dog
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="">
+            Cat
+          </label>
+        </div>
+        <h6>Size:</h6>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="">
+            Small
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="">
+            Medium
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="">
+            Big
+          </label>
+        </div>
+        <h6>Pick-up method:</h6>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="">
+            Pick-up
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="">
+            Drop-off
+          </label>
+        </div>
+        <button class="btn btn-primary btn-block">Search</button>
+      </div>
+
+      <div class="col-md-9">
+        <% if @services.any? %>
+            <% @services.each do |service| %>
+                <div class="content-box">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <%= image_tag service.photo, alt: "default", class: "box-image" %>
+                    </div>
+                    <div class="col-md-6">
+                      <%= service.provider.name %> <%= service.provider.last_name %><br>
+                      <h6>Age: </h6>
+                      <%= service.provider.birth %>
+                      <h6>Sex: </h6>
+                      <%= service.provider.sex %>
+                      <h6>Address: </h6>
+                      <%= service.address %>
+                      <h6>About me: </h6>
+                      <%= service.description %>
+                    </div>
+                    <div class="col-md-3">
+                        <h6>Users rating: </h6>
+                        <p><%= service.rating %>/5</p>
+                        <h6>Price: </h6>
+                        <p></p><%= service.price %>$</p>
+                        <%= link_to "Book now", service_url(service), class: "btn btn-primary" %>
+                    </div>
+                  </div>
+
+                </div>
+            <% end %>
+            <%= will_paginate @services, renderer: BootstrapPagination::Rails %>
+            <div class="row">
+              <div class="col-md-4">
+              </div>
+              <div class="col-md-4">
+                <%= image_tag("Logo.png", alt: "default", class: "header-image") %>
+              </div>
+            </div>
+            </div>
+        <% else %>
+            <h5>Sorry, no results were found :(</h5>
+            <div class="row">
+              <div class="col-md-4">
+              </div>
+              <div class="col-md-4">
+                <%= image_tag("Logo.png", alt: "default", class: "header-image") %>
+              </div>
+            </div>
+        <% end %>
+      </div>
+
+    </div>
+</div>

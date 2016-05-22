@@ -1,0 +1,97 @@
+<div class="main-body">
+    <div class="row">
+      <div class="col-md-7">
+        <%= image_tag(@map, alt: "default", class: "map-image") %><br><br>
+        <table class="table table-striped">
+          <tr>
+            <td><h6>About me: </h6></td>
+            <td><%= @service.description %></td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-5">
+        <div class="row">
+          <div class="col-md-4">
+            <%= image_tag(@service.photo, alt: "default", class: "testimony-image") %><br><br>
+          </div>
+          <div class="col-md-6">
+            <h3><%= @service.service_type %></h3>
+          </div>
+        </div>
+
+        <table class="table table-striped">
+          <tr>
+            <td><h6>Name:</h6></td>
+            <td><%= @service.provider.name %></td>
+          </tr>
+          <tr>
+            <td><h6>Last name:</h6></td>
+            <td><%= @service.provider.last_name %></td>
+          </tr>
+          <tr>
+            <td><h6>Address: </h6></td>
+            <td><%= @service.address %></td>
+          </tr>
+          <tr>
+            <td><h6>Sex: </h6></td>
+            <td><%= @service.provider.sex %></td>
+          </tr>
+          <tr>
+            <td><h6>Age: </h6></td>
+            <td><%= @service.provider.birth %></td>
+          </tr>
+          <tr>
+            <td><h6>Price: </h6></td>
+            <td><%= @service.price %>$<br></td>
+          </tr>
+        </table>
+
+        <%= link_to "Book now", new_service_session_path(@service), class: "btn btn-primary btn-block" %>
+      </div>
+    </div>
+    <div class="row comments">
+        <div class="col-md-10">
+          <h1>Rating</h1>
+          <h3><%= @service.rating %>/5</h3>
+          <% if @service.comments.any? %>
+
+              <h2>Top comments</h2>
+              <% @service.comments.each do |comment| %>
+
+                    <div class="content-box">
+                      <div class="row">
+                      <div class="col-md-3">
+                        <%= image_tag(comment.user.photo, alt: "default", class: "box-image") %>
+                      </div>
+                      <div class="col-md-6">
+                        <h1><%= comment.title %></h1>
+                        <p><%= comment.information %></p>
+                      </div>
+                      <div class="col-md-3">
+                        <h5>Ratings</h5>
+                        <table class="table">
+                          <tr>
+                            <td>Punctuality</td>
+                            <td><%= comment.q1 %>/5</td>
+                          </tr>
+                          <tr>
+                            <td>Responsability</td>
+                            <td><%= comment.q2 %>/5</td>
+                          </tr>
+                          <tr>
+                            <td>Communication</td>
+                            <td><%= comment.q3 %>/5</td>
+                          </tr>
+                        </table>
+                        <h5>Overall</h5>
+                        <%= comment.rating %>/5
+                      </div>
+                    </div>
+                  </div>
+              <% end %>
+          <% else %>
+            <p>Sorry, there ano comments for this provider. We would like to receive comments from you to give feedback to provider and users!</p>
+          <% end %>
+        </div>
+    </div>
+</div>

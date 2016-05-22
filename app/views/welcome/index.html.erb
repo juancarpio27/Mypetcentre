@@ -1,0 +1,76 @@
+
+
+<div class="row">
+  <div class="col-md-8 search-form">
+
+    <h3>Find your best service</h3>
+    <%= form_tag services_path, method: 'get', html: {class: "form-horizontal center"} do %>
+        <h5>Enter your location</h5>
+        <div class="form-group">
+          <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Location" %>
+        </div>
+        <h5>What kinf of service are you looking for?</h5>
+        <select class="form-control">
+          <option>Minding</option>
+          <option>Grooming</option>
+          <option>Walking</option>
+          <option>Veterinary</option>
+        </select>
+        <h5>What kind of pet do you have?</h5>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="">
+            Dog
+          </label>
+        </div>
+        <div class="checkbox disabled">
+          <label>
+            <input type="checkbox" value="">
+            Cat
+          </label>
+        </div>
+        <h5>How many pets do you want to book?</h5>
+        <select class="form-control">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>More?</option>
+        </select>
+        <h5>What size are them?</h5>
+        <select class="form-control">
+          <option>Small</option>
+          <option>Medium</option>
+          <option>Big</option>
+        </select>
+        <h5>How do you want your pet to be received?</h5>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Pick-up
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Drop-off
+        </label><br><br>
+        <%= submit_tag "Search", :name => nil, class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <%= image_tag("Pets.jpg", alt: "Search", class: "search-image circular") %>
+  </div>
+</div>
+<div class="jumbotron">
+  <p class="text-center">We look forward to provide your pet with the best services, following high quality standards within our providers, making you feel closer to your pet when you are away from home.</p>
+</div>
+<%= image_tag("Header2.jpg", alt: "Header", class: "main-image") %>
+
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-md-6">
+      <p class="text-center">"I had a one week vacation and I left my pet with Mypetcentre providers. It as awesome how did they take care of him, and how close a felt to my pet". Lucia</p>
+      <%= image_tag("Testimony1.png", alt: "Search", class: "testimony-image") %>
+    </div>
+    <div class="col-md-6">
+      <p class="text-center">"With Mypetcentre I can help people taking care of their pets when they are away. I enjoy a lot having dogs in my house, and I make my best to always make them feel at home". Greg</p>
+      <%= image_tag("Testimony2.png", alt: "Search", class: "testimony-image") %>
+    </div>
+  </div>
+</div>

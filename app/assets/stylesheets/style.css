@@ -1,0 +1,147 @@
+.main-image {
+    height: 350px;
+    width: 100%;
+    margin-top: -29px;
+}
+
+.header-image {
+    width: 170px;
+}
+.search-image {
+    width: 80%;
+    height: 100%;
+    margin-top: 20%;
+}
+.search-form {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 45px;
+}
+.footer {
+    padding-left: 10%;
+    padding-right: 12%;
+    background: #eeeeee;
+}
+.logo-image{
+    height: 170px;
+    padding-bottom: 20px;
+}
+.main-body {
+    padding: 20px;
+    padding-right: 40px;
+}
+
+.content-box {
+    border: solid 2px;
+    border-color: #428bca;
+    margin-bottom: 20px;
+    border-radius: 25px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 15px;
+}
+
+.box-image {
+    width: 180px;
+    height: 180px;
+    border-radius: 90px;
+    -webkit-border-radius: 90px;
+    -moz-border-radius: 90px;
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-right: 7px;
+}
+.map-image {
+    width: 90%;
+    height: 350px;
+}
+
+.comments {
+    margin-left: 20px;
+}
+
+.login_form {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 18%;
+    padding-right: 18%;
+    text-align: center;
+}
+
+.rounded {
+    border: solid 1px;
+    border-color: #428bca;
+    border-radius: 25px;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+.circular {
+    width: 300px;
+    height: 300px;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+}
+
+.testimony-image{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    display: block;
+    margin: 0 auto;
+}
+
+.centered {
+    display: block;
+    margin: 0 auto;
+}
+
+.payment-success {
+    padding: 10px;
+    border: solid 1px;
+    border-radius: 25px;
+}
+
+.review-image{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    display: block;
+    margin: 0 auto;
+}
+
+.questions {
+    text-align: center;
+}
+
+.question {
+    border: solid 1px;
+    border-color: #428bca;
+    border-radius: 25px;
+    padding-left: 2%;
+    padding-right: 2%;
+    margin-bottom: 10px;
+}
+
+.rating {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    font-size: 200%;
+}
+.rating > span {
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+    content: "\2605";
+    position: absolute;
+}

@@ -1,0 +1,69 @@
+<div class="main-body">
+  <div class="row">
+
+    <div class="col-md-3">
+      <h4>Review your services</h4>
+      <%= link_to "Pending", root_path, class: "btn btn-primary btn-block" %><br><br>
+      <%= link_to "In process", root_path, class: "btn btn-primary btn-block" %><br><br>
+      <%= link_to "Unrated", unrated_path, class: "btn btn-primary btn-block" %><br><br>
+      <%= link_to "Completed", root_path, class: "btn btn-primary btn-block" %><br><br>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-8 rounded">
+        <h2>Welcome <%= @user.name %>!</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <table class="table table-striped">
+              <tr>
+                <td>Name:</td>
+                <td><%= @user.name %></td>
+              </tr>
+              <tr>
+                <td>Last name:</td>
+                <td><%= @user.last_name %></td>
+              </tr>
+              <tr>
+                <td>Sex:</td>
+                <td><%= @user.sex %></td>
+              </tr>
+              <tr>
+                <td>Email:</td>
+                <td><%= @user.email %></td>
+              </tr>
+            </table>
+            <button class="btn btn-success">Edit profile</button>
+          </div>
+          <div class="col-md-6">
+            <%= image_tag(@user.photo, alt: "default", class: "box-image") %>
+          </div>
+        </div>
+        <div class="row">
+          <h1>Your current service: </h1>
+        </div>
+        <% if @user.reservations.active.any? %>
+            <% @user.reservations.active.each do |reservation| %>
+              <table class="table">
+                <tr>
+                  <td>Number of pets: </td>
+                  <td><%= reservation.quantity %></td>
+                </tr>
+                <tr>
+                  <td>Start date: </td>
+                  <td><%= reservation.start %></td>
+                </tr>
+                <tr>
+                  <td>End date: </td>
+                  <td><%= reservation.end %></td>
+                </tr>
+                <tr>
+                  <td>Price: </td>
+                  <td><%= reservation.price %></td>
+                </tr>
+              </table>
+            <% end %>
+        <% else %>
+            You dont have active services! We hope to see your pet soon!
+        <% end %>
+    </div>
+  </div>
+</div>

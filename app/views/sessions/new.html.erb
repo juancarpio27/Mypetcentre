@@ -1,0 +1,19 @@
+<div class="login_form">
+  <div class="rounded">
+    <%= image_tag("Logo.png", alt: "default", size: "260x100") %>
+    <h3>Enter to MyPetCentre.com</h3>
+
+    <%= form_tag service_sessions_path(@service) do %>
+        <div class="form-group">
+          <%= text_field_tag :email, params[:email], class: "form-control", placeholder: "Email" %>
+        </div>
+        <div>
+          <%= password_field_tag :password,params[:password], class: "form-control", placeholder: "Password" %>
+        </div><br>
+        <%= submit_tag "Log in", class: "btn btn-primary btn-lg" %><br>
+
+    <% end %>
+    <br><%= link_to "Create account", new_user_path %>
+  </div>
+</div>
+

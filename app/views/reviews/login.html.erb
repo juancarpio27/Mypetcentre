@@ -1,0 +1,16 @@
+<div class="login_form">
+  <div class="rounded">
+    <%= image_tag("Logo.png", alt: "default", size: "260x100") %>
+    <h3>See your profile!</h3>
+    <form>
+      <div class="form-group">
+        <input type="email" class="form-control" placeholder="Email">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" placeholder="Password">
+      </div>
+    </form>
+    <%= link_to "Log in", profile_path, class: "btn btn-primary btn-lg" %><br>
+    <br><%= link_to "Create account", new_user_path %>
+  </div>
+</div>
