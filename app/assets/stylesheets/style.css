@@ -145,3 +145,12 @@
     content: "\2605";
     position: absolute;
 }
+
+#map {
+    width: 90%;
+    height: 350px;
+}
+
+.about{
+    margin-top: 10px;
+}

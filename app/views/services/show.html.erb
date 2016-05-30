@@ -1,8 +1,26 @@
 <div class="main-body">
     <div class="row">
       <div class="col-md-7">
-        <%= image_tag(@map, alt: "default", class: "map-image") %><br><br>
-        <table class="table table-striped">
+        <div id="map" lat="<%= @service.latitude %>" lon="<%= @service.longitude %>"></div>
+        <script>
+            function initMap() {
+                var mapDiv = document.getElementById('map');
+                var latitude = document.getElementById('map').getAttribute("lat");
+                var longitude = document.getElementById('map').getAttribute("lon");
+                var map = new google.maps.Map(mapDiv, {
+
+                    center: {lat: parseFloat(latitude), lng: parseFloat(longitude)},
+                    zoom: 15
+                });
+
+                var marker = new google.maps.Marker({
+                    position: {lat: parseFloat(latitude), lng: parseFloat(longitude)},
+                    map: map
+                });
+            }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
+        <table class="table table-striped about">
           <tr>
             <td><h6>About me: </h6></td>
             <td><%= @service.description %></td>
