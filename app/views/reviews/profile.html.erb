@@ -44,6 +44,10 @@
             <% @user.reservations.active.each do |reservation| %>
               <table class="table">
                 <tr>
+                  <td>Provider: </td>
+                  <td><%= reservation.service.name %> <%= reservation.service.last_name %></td>
+                </tr>
+                <tr>
                   <td>Number of pets: </td>
                   <td><%= reservation.quantity %></td>
                 </tr>
