@@ -23,20 +23,20 @@
         <%= f.select :deliver, Reservation.deliver_types.map { |key, value| [key.humanize, key] }, label: "Pick up method"  %>
 
 
-  </div>
-  <div class="rounded">
+
     <h3>Payment details</h3>
     <%= f.text_field :card_name, placeholder: 'Name on card', hide_label: true %>
     <%= f.text_field :card_number, placeholder: 'Number', hide_label: true %>
     <%= f.text_field :exp_month, placeholder: 'Expiration month', hide_label: true %>
     <%= f.text_field :exp_year, placeholder: 'Expiration year', hide_label: true %>
     <%= f.text_field :cvv, placeholder: 'CVV', hide_label: true %>
-  </div>
+
         <h3>Terms of booking</h3>
 
-          <input type="checkbox"> By clicking you accept Mypetcentre <a href="#">terms and conditions</a> about service's reservations
+          <input type="checkbox"> By clicking you accept Mypetcentre <a href="#">terms and conditions</a> about service's reservations</input>
 
         <p>Any change or cancellation can be done 48 hours prior the start date</p>
         <%= submit_tag "Book now", class: "btn btn-primary btn-lg" %><br>
     <% end %>
+    </div>
 </div>
